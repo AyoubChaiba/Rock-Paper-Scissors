@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #8bb8f1;
+}
+
+
+.selection {
+  width: 60%;
+  height: 60px;
+  display: flex;
+  margin: 20px auto;
+  position: relative;
+  font-size: 50px;
+}
+
+.selection>.select {
+  width: calc(100% / 3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform .3s;
+}
+
+.select::before {
+  content: "";
+  width: 70px;
+  height: 70px;
+  bottom: -12px;
+  position: absolute;
+  border: 3px solid transparent;
+  border-radius: 50%;
+  transition: .3s;
+  transform: scale(1.2);
+}
+
+.select:hover:before {
+  border-color: aliceblue;
+  transform: scale(1);
+  opacity: 0.8;
+}
+
+.select:hover {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.score-text {
+  display: flex;
+  width: 50%;
+  margin: 10px auto;
+  justify-content: flex-start;
+  box-shadow: 0 0 5px 1px #00000049;
+
+}
+
+.score-text div {
+  border: 1px solid whitesmoke;
+  width: calc(100% / 2);
+  font-size: 20px;
+  font-family: Cairo;
+  padding: 0 10px;
+}
+
+.score-text div>samp {
+  font-size: 20px;
+  font-family: Cairo;
+}
+
+.score {
+  display: grid;
+  width: 50%;
+  font-size: 20px;
+  margin: 0 auto;
+  grid-template-columns: repeat(2, 31px);
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.add {
+  opacity: .5;
+}
+
+.winner {
+  opacity: 1;
+  animation-name: ff;
+  animation-duration: 0.5s;
+  animation-direction: alternate-reverse;
+  animation-iteration-count: infinite;
+}
+
+[data-finl] {
+  display: none;
+}
+
+@keyframes ff {
+  from {
+    transform: scale(1.2) rotate(30deg);
+  }
+
+  to {
+    transform: scale(1.5) rotate(-30deg);
+  }
+}
